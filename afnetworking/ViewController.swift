@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+    
     @IBOutlet weak var tblTabla: UITableView!
     
     var arreglo : [(nombre: String, edad: Int, genero: String, foto: String)] = []
@@ -19,8 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        //arreglo.append((nombre: "José", edad: 30, genero: "h", foto: ""))
-        
         sincronizar()
     }
 
@@ -31,42 +30,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func sincronizar ()
     {
-    
         let url = URL(string: "http://kke.mx/demo/contactos.php")
         
         var request = URLRequest(url: url!, cachePolicy: URLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 1000)
+        request.httpMethod = "POST"
         
-        request.httpMethod = "GET"
+        
         
         let session = URLSession.shared
-        
-        
         let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-    
             guard (error == nil) else {
                 print("Ocurrió un error con la petición: \(error)")
                 return
             }
             
+           // let das = data?.base64EncodedString()
+           // let dat = Data(base64Encoded: "ABABABABABA==")
+            
+            
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                
                 print("Ocurrió un error con la respuesta.")
                 return
             }
-            
             if (!(statusCode >= 200 && statusCode <= 299))
             {
                 print("Respuesta no válida")
                 return
             }
-            
-            
             let cad = String(data: data!, encoding: .utf8)
             print("Response: \(response!.description)")
             print("error: \(error)")
             print("data: \(cad!)")
-            
-            
             
             var parsedResult: Any!
             do {
@@ -77,7 +71,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 return
             }
             
-            guard let datos = (parsedResult as? Dictionary<String, Any?>)?["datos"]  as! [Dictionary<String, Any>]! else {
+            guard let datos = (parsedResult as? Dictionary<String, Any?>)?["datos"]
+                as! [Dictionary<String, Any>]! else {
                 print("Error: \(error)")
                 return
             }
@@ -89,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let edad = (d["edad"] as! Int)
                 let foto = d["foto"] as! String
                 let genero = d["genero"] as! String
-                
+                //  var arreglo : [(nombre: String, edad: Int, genero: String, foto: String)] = []
                 self.arreglo.append((nombre: nombre, edad: edad, genero: genero, foto: foto))
                 
                 
@@ -128,6 +123,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     */
 
+   //  https://github.com/pojomx/app_curso_t.git 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return arreglo.count;
