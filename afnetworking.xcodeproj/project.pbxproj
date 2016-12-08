@@ -12,6 +12,8 @@
 		A181D8621DF8F01C00E62FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A181D8601DF8F01C00E62FA6 /* Main.storyboard */; };
 		A181D8641DF8F01C00E62FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A181D8631DF8F01C00E62FA6 /* Assets.xcassets */; };
 		A181D8671DF8F01C00E62FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A181D8651DF8F01C00E62FA6 /* LaunchScreen.storyboard */; };
+		A181D86F1DF8F12E00E62FA6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181D86E1DF8F12E00E62FA6 /* TableViewCell.swift */; };
+		A181D8711DF8F20400E62FA6 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181D8701DF8F20400E62FA6 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		A181D8631DF8F01C00E62FA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A181D8661DF8F01C00E62FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A181D8681DF8F01C00E62FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A181D86E1DF8F12E00E62FA6 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A181D8701DF8F20400E62FA6 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				A181D8631DF8F01C00E62FA6 /* Assets.xcassets */,
 				A181D8651DF8F01C00E62FA6 /* LaunchScreen.storyboard */,
 				A181D8681DF8F01C00E62FA6 /* Info.plist */,
+				A181D86E1DF8F12E00E62FA6 /* TableViewCell.swift */,
+				A181D8701DF8F20400E62FA6 /* UIImageViewExtension.swift */,
 			);
 			path = afnetworking;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A181D86F1DF8F12E00E62FA6 /* TableViewCell.swift in Sources */,
 				A181D85F1DF8F01C00E62FA6 /* ViewController.swift in Sources */,
+				A181D8711DF8F20400E62FA6 /* UIImageViewExtension.swift in Sources */,
 				A181D85D1DF8F01C00E62FA6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
